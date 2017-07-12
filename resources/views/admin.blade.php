@@ -1,4 +1,4 @@
-@extends('templates.layout.admin')
+@extends('templates.layout.gerenciar')
 @section('header')
     <div class="sub-nav">
         <div class="container">
