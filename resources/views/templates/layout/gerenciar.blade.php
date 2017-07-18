@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>{{config('app.name')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -12,6 +12,8 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+    @stack('estilo')
 
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -25,43 +27,25 @@
 </head>
 <body>
 @include('templates.navbar.navbar-admin')
-{{--<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <!-- Logo -->
-                <div class="logo">
-                    <h1><a href="index.html">Bootstrap Admin Theme</a></h1>
-                </div>
-            </div>
-
-            <div class="col-md-offset-5 col-md-2">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-                                <ul class="dropdown-menu animated fadeInUp">
-                                    <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="login.html">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--}}
-
+{{-- conteúdo--}}
 <div class="page-content">
     <div class="row">
+        {{--menu--}}
         <div class="col-md-2">
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
+                    <li class="submenu">
+                        <a href="#"><i class="glyphicon glyphicon-calendar"></i> Tutoriais
+                        <span class="caret pull-right"></span>
+                        </a>
+                        {{--sub menu tutoriais--}}
+                        <ul>
+                            <li><a href="{{route('/gerenciar/tutoriais')}}">Gerenciar</a></li>
+                            <li><a href="{{route('/cadastrar/tutorial')}}">Novo</a></li>
+                        </ul>
+                    </li>
                     <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
                     <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
                     <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
@@ -81,7 +65,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-10 custom-font">
+        {{--conteúdo do site--}}
+        @yield('adm-conteudo')
+        {{--<div class="col-md-10 custom-font">
             <div class="row">
                 <div class="col-md-6">
                     <div class="content-box-large">
@@ -225,50 +211,15 @@
                 Pellentesque id arcu et odio imperdiet laoreet. Nulla sed eros risus. Sed tellus odio, faucibus et odio eu, eleifend aliquet nisl. In porttitor odio pulvinar ligula tempor, bibendum lacinia metus mattis. Donec venenatis, tellus non aliquet lobortis, magna lorem ullamcorper urna, nec posuere metus lacus non tellus. Aenean condimentum, velit ac tincidunt volutpat, dolor metus pulvinar lacus, a commodo massa dolor eget magna. Ut hendrerit lectus sit amet malesuada tincidunt.
                 <br /><br />
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    <li>
-                        <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                </ul>
-                <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
-            </div>
-        </div>
-    </div>
-</footer>
+@include('templates.footer.footer')
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+@stack('scripts')
 </body>
 </html>

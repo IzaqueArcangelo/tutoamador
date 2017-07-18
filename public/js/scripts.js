@@ -1,10 +1,12 @@
 
 jQuery(document).ready(function() {
-	
+	var Url = 'http://' + window.location.hostname + '/img/backgrounds/1.jpg';
+
     /*
-        Fullscreen background
+      *  Fullscreen background
+	 *	{{asset('/img/backgrounds/1.jpg')}}
     */
-    $.backstretch('/img/backgrounds/1.jpg');
+    $.backstretch(Url);
     
     /*
         Form validation

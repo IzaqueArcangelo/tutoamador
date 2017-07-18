@@ -29,18 +29,7 @@
                         <a href="{{route('/contato')}}">Contato <i class="fa fa-envelope" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="{{route('/')}}" data-toggle="dropdown">Gerenciar <i class="fa fa-cog" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{route('/gerenciar/usuarios')}}">Usuarios</a>
-                            </li>
-                            <li>
-                                <a href="{{route('/tutoriais')}}" >Tutoriais</a>
-                            </li>
-                            <li>
-                                <a href="{{route('/post')}}">Sample Post</a>
-                            </li>
-                        </ul>
+                        <a href="{{route('/admin')}}">Gerenciar <i class="fa fa-cog" aria-hidden="true"></i></a>
                     </li>
                     <li>
                         <a href="#" data-toggle="dropdown">{{ Auth::user()->nomeUsuario}}  <i class="fa fa-caret-down" aria-hidden="true"></i></a>

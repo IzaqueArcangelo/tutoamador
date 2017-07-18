@@ -39,6 +39,7 @@ Route::get('/editar/perfil', 'registro\UsuarioController@editar')->name('/editar
 Route::get('/cadastrar/tutorial', 'app\TutorialController@cadastrar')->name('/cadastrar/tutorial');
 Route::post('/salvar/tutorial', 'app\TutorialController@salvar')->name('/salvar/tutorial');
 Route::get('/ler/tutorial/{id}', 'app\TutorialController@verTutorial')->name('/ler/tutorial');
+Route::get('/gerenciar/tutoriais', 'app\TutorialController@gerenciarTutoriais')->name('/gerenciar/tutoriais');
 
 
 

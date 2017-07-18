@@ -35,7 +35,7 @@ class TutorialController extends Controller
         $valor = $form['valor'];
         $categorias = collect($form['categorias']);
         //$imagemCabecalho = $request->file('escolherImagemCabecalho')->store('imgTutorial');
-        $imagemCabecalho = Storage::disk('public')->put('imgTutorial/', $request->file('escolherImagemCabecalho'));
+        $imagemCabecalho = Storage::disk('public')->put('imgTutorial', $request->file('escolherImagemCabecalho'));
         $imagemExibicao = $request->file('escolherImagemExibicao')->store('imgTutorial');
 
 
@@ -81,6 +81,10 @@ class TutorialController extends Controller
     public function verTutorial($id){
         $tutorial = Tutorial::find($id);
         return view('tutorial.post', compact('tutorial'));
+    }
+
+    public function gerenciarTutoriais(){
+        return view('tutorial.gerenciar');
     }
 
 
