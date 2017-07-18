@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h1>Descrição das atividades</h1>
-                    <p>Descrição das atividades</p>
+                    <h1>EDITAR PERFIL</h1>
+                    {{--<p>Descrição das atividades</p>--}}
                 </div>
             </div>
         </div>

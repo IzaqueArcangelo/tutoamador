@@ -29,13 +29,10 @@
                         <a href="{{route('/contato')}}">Contato <i class="fa fa-envelope" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="{{route('/editar/perfil')}}">{{ Auth::user()->nomeUsuario}} <i class="fa fa-user-circle" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
                         <a href="{{route('/')}}" data-toggle="dropdown">Gerenciar <i class="fa fa-cog" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{{route('/admin')}}">Usuarios</a>
+                                <a href="{{route('/gerenciar/usuarios')}}">Usuarios</a>
                             </li>
                             <li>
                                 <a href="{{route('/tutoriais')}}" >Tutoriais</a>
@@ -46,11 +43,19 @@
                         </ul>
                     </li>
                     <li>
-                    <a href="{{ url('/logout')}}"
-                       onclick="event.preventDeroutefault();
-                               document.getElementById('logout-form').submit();" class="btn-user" title="Gerenciar">
-                        Sair
-                    </a>
+                        <a href="#" data-toggle="dropdown">{{ Auth::user()->nomeUsuario}}  <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{route('/editar/perfil')}}"> Perfil <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/logout')}}"
+                                   onclick="event.preventDeroutefault();
+                               document.getElementById('logout-form').submit();" class="btn-user" title="Sair">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     @else
                     <li>

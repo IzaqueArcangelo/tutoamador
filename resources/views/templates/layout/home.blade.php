@@ -16,6 +16,7 @@
     <!-- Theme CSS -->
     <link href="{{asset('css/clean-blog.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{asset('img/ico/favicon.png')}}">
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -28,6 +29,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    @stack('estilo')
 </head>
 
 <body>

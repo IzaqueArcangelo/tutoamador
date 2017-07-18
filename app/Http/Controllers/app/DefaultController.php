@@ -36,6 +36,11 @@ class DefaultController extends Controller
         return view('tutoriais');
     }
 
+    public function gerenciarUsuarios(){
+        return view('usuarios.gerenciar');
+    }
+
+
 
 
 }
